@@ -1,2 +1,2 @@
-## identify-mii
-### Wii homebrew that prints the Bluetooth address of the console
+# identify-mii
+## Wii homebrew that prints the Bluetooth address of the console
