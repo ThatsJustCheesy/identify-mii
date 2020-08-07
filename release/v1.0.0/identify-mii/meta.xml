@@ -1,0 +1,9 @@
+<?xml version='1.0' encoding='utf-8' standalone='yes'?>
+<app version="1">
+	<name>identify-mii</name>
+	<coder>Ian Gregory</coder>
+	<short_description>Displays Bluetooth address</short_description>
+	<long_description>Displays the Bluetooth MAC address of the Bluetooth Controller built into this Wii (U) console. This Bluetooth Controller communicates with game controllers (like Wiimotes) wirelessly. Use in conjunction with https://github.com/rnconrad/WiimoteEmulator to spoof a Wiimote.</long_description>
+	<version>v1.0.0</version>
+	<release_date>7 Aug 2020</release_date>
+</app>
