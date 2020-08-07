@@ -1,7 +1,7 @@
 # identify-mii
 ## Wii homebrew that prints the Bluetooth address of the console
 
-Displays the Bluetooth MAC address of the Bluetooth Controller built into a given Wii (U) console, which is used communicate with game controllers (like Wiimotes) wirelessly.
+Displays the Bluetooth MAC address of the Bluetooth Controller built into a given Wii (U) console, which is used to communicate with game controllers (like Wiimotes) wirelessly.
 
 Once the address of your console has been determined, you can try to use it in conjunction with [WiimoteEmulator](https://github.com/rnconrad/WiimoteEmulator) to have a Linux machine spoof a Wiimote.
 
