@@ -53,3 +53,7 @@ Clean:
 Run (with Wiiload):
 
     ./make.sh run
+
+### Package a release
+
+Build, then copy `identify-mii.dol` and `meta.xml` into a folder named `identify-mii`, and finally rename `identify-mii.dol` to `boot.dol`. This is now a working release that can be placed in the `apps` folder.
