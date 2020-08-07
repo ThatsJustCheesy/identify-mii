@@ -21,7 +21,7 @@ Regardless of the method you choose, do your research first. Prefer text guides 
 
 LMGTFY:
 
-- [Wii](https://google.com/search?q=install+homebrew+channel)
+- [Wii](https://www.google.com/search?q=install+homebrew+channel)
 - [vWii (Wii U)](https://www.google.com/search?q=install+homebrew+channel+vwii)
 
 ### identify-mii
