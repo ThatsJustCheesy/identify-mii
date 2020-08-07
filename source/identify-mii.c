@@ -1,8 +1,5 @@
-// Derived from devkitPPC USB Keyboard sample
-// and https://wiibrew.org/wiki//dev/usb/oh1
-// (massive props to whoever wrote the sample on that wiki page).
-// Also consult Universal Serial Bus Specification Revision 2.0, § 9.3 (USB Device Requests)
-// and Bluetooth Core Specification Version 5.2, § 5.4.1, § 7.4.6.
+// Written by Ian Gregory,
+// Derived from the devkitPPC USB Keyboard sample.
 
 #include <gccore.h>
 #include <wiiuse/wpad.h>
@@ -13,15 +10,6 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
-
-static void *xfb = NULL;
-static GXRModeObj *rmode = NULL;
-
-bool quitapp = false;
-
-void keypress_callback(char sym) {
-    quitapp = true;
-}
 
 void identifymii_pause(int sec) {
 	VIDEO_WaitVSync();
@@ -39,6 +27,13 @@ s32 bdaddr_callback(s32 result, void *userdata) {
     printf("\n\n");
     return result;
 }
+
+void keypress_callback(char sym) {
+    exit(0);
+}
+
+static void *xfb = NULL;
+static GXRModeObj *rmode = NULL;
 
 int main(int argc, char **argv) {
 	// Initialise the video system
@@ -74,8 +69,10 @@ int main(int argc, char **argv) {
 	if(rmode->viTVMode&VI_NON_INTERLACE) VIDEO_WaitVSync();
 
 	KEYBOARD_Init(keypress_callback);
+    
+    identifymii_pause(1);
 
-	puts("identify-mii v1.0.0\nBy Ian Gregory\nBased on samples from devkitPPC and wiibrew.org\n");
+	puts("identify-mii v1.0.0\nBy Ian Gregory\nBased on libogc and samples from devkitPPC\n");
 
 	identifymii_pause(3);
 
@@ -85,7 +82,7 @@ int main(int argc, char **argv) {
     identifymii_pause(1);
 
     puts("Press HOME or any keyboard key to quit.\nHappy hacking :)");
-	do {
+	while(1) {
 		// Call WPAD_ScanPads each loop, this reads the latest controller states
 		WPAD_ScanPads();
 
@@ -93,14 +90,12 @@ int main(int argc, char **argv) {
 		// this is a "one shot" state which will not fire again until the button has been released
 		u32 pressed = WPAD_ButtonsDown(0);
 
-		(void)getchar();
-
 		// We return to the launcher application via exit
-		if (pressed & WPAD_BUTTON_HOME) quitapp = true;
+		if (pressed & WPAD_BUTTON_HOME) exit(0);
 
 		// Wait for the next frame
 		VIDEO_WaitVSync();
-	} while(!quitapp);
+	}
 
 	return 0;
 }
